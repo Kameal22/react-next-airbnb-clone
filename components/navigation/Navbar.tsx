@@ -1,15 +1,20 @@
 import Link from 'next/link'
+import { NavbarDiv, NavbarLogo, NavSearch, NavRegisterDiv } from "./styled/navbar.styled";
 
 const Navbar: React.FC = () => {
     return (
-        <div>
+        <NavbarDiv>
             <Link href="/">
-                <a>Home</a>
+                <NavbarLogo>airbnb</NavbarLogo>
             </Link>
+            <NavSearch></NavSearch>
             <Link href="/register">
-                <a>Register</a>
+                <NavRegisterDiv>
+                    <i className="bi bi-list"></i>
+                    <i className="bi bi-person-circle"></i>
+                </NavRegisterDiv>
             </Link>
-        </div>
+        </NavbarDiv>
     )
 }
 

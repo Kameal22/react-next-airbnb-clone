@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import LandingPage from '../components/landingPage/landingPage';
 import { apiDataTypes } from "../types/apiDataTypes";
 
 interface Props {
@@ -15,20 +15,16 @@ const Home: NextPage<Props> = ({ data }) => {
   }
 
   return (
-    <div>
-      <button onClick={showAnnouncementHandler}>Visit this place</button>
-    </div>
+    <LandingPage />
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await axios.get('./data.json');
-
-  const apiData = response.data;
+  const example = await import('../data/data.json');
 
   return {
     props: {
-      data: apiData
+      data: example.default
     }
   }
 }
