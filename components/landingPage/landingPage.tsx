@@ -6,7 +6,6 @@ interface Props {
 }
 
 const LandingPage: React.FC<Props> = ({ data }) => {
-    console.log(data)
     return (
         <LandingPageStyledDiv>
 

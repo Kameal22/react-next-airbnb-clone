@@ -3,6 +3,7 @@
     "country": "Croatia",
     "city": "Sali",
     "area": "islands",
+    "id": "101",
     "images": [
       {
         "main": "https://a0.muscache.com/im/pictures/miso/Hosting-555632030522710376/original/c8b5a0c1-0468-4402-a772-2b93d75366df.jpeg?im_w=1200",
@@ -32,6 +33,7 @@
   {"country": "Poland",
   "city": "Warsaw",
   "area": "city",
+  "id": "102",
   "images": [
     {
       "main": "https://images.pexels.com/photos/2613438/pexels-photo-2613438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
