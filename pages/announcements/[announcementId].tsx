@@ -17,7 +17,7 @@ export const getStaticPaths = async () => {
         paths: [
             {
                 params: {
-                    announcementId: '1id',
+                    announcementId: '1',
                 }
             }
         ]

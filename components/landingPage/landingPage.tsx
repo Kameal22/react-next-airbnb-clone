@@ -1,6 +1,12 @@
 import { LandingPageStyledDiv } from "./styled/landingPage.styled";
+import { apiDataTypes } from "../../types/apiDataTypes";
 
-const LandingPage: React.FC = () => {
+interface Props {
+    data: apiDataTypes[]
+}
+
+const LandingPage: React.FC<Props> = ({ data }) => {
+    console.log(data)
     return (
         <LandingPageStyledDiv>
 

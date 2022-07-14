@@ -38,4 +38,8 @@ export const NavRegisterDiv = styled.div`
     -moz-box-shadow: -6px 5px 18px -12px rgba(66, 68, 90, 1);
     box-shadow: -6px 5px 18px -12px rgba(66, 68, 90, 1);
   }
+
+  i {
+    font-size: 1.2rem;
+  }
 `;

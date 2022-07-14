@@ -15,7 +15,7 @@ const Home: NextPage<Props> = ({ data }) => {
   }
 
   return (
-    <LandingPage />
+    <LandingPage data={data} />
   )
 }
 
