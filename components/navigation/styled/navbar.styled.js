@@ -18,11 +18,30 @@ export const NavbarLogo = styled.h2`
   }
 `;
 
-export const NavSearch = styled.input`
+export const NavForm = styled.form`
   width: 25%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  i {
+    position: absolute;
+    right: 14px;
+  }
+`;
+
+export const NavSearch = styled.input`
+  width: 100%;
   border-radius: 20px;
   padding: 10px;
   border: 1px solid lightgray;
+
+  &:hover {
+    cursor: pointer;
+    -webkit-box-shadow: -6px 5px 18px -12px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -6px 5px 18px -12px rgba(66, 68, 90, 1);
+    box-shadow: -6px 5px 18px -12px rgba(66, 68, 90, 1);
+  }
 `;
 
 export const NavRegisterDiv = styled.div`
@@ -53,6 +72,8 @@ export const DropdownStyled = styled.div`
   right: 5%;
   border-radius: 20px;
   border: 1px solid lightgray;
+  z-index: 999;
+  background-color: white;
 `;
 
 export const DropdownList = styled.ul`

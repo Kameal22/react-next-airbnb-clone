@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Dropdown from './Dropdown';
 import { NavbarDiv, NavbarLogo, NavSearch, NavRegisterDiv } from "./styled/navbar.styled";
 import UseClickOutside from '../../hooks/useClickOutside';
+import Search from './Search';
 
 const Navbar: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ const Navbar: React.FC = () => {
             <Link href="/">
                 <NavbarLogo>airbnb</NavbarLogo>
             </Link>
-            <NavSearch />
+            <Search />
             <NavRegisterDiv onClick={() => setOpen(!open)}>
                 <i className="bi bi-list"></i>
                 <i className="bi bi-person-circle"></i>

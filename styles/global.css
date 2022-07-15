@@ -8,6 +8,12 @@ body {
   font-size: 18px;
 }
 
+input:focus{
+  outline: none;
+  border-color: gray;
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
 }
