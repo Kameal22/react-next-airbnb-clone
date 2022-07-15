@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const NavbarDiv = styled.div`
+  position: relative;
   border-bottom: 0.5px solid lightgray;
   padding: 0 5%;
   display: flex;
@@ -41,5 +42,39 @@ export const NavRegisterDiv = styled.div`
 
   i {
     font-size: 1.2rem;
+  }
+`;
+
+export const DropdownStyled = styled.div`
+  width: 15%;
+  padding: 8px;
+  position: absolute;
+  top: 90px;
+  right: 5%;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+`;
+
+export const DropdownList = styled.ul`
+  width: 90%;
+  margin: 0.5vh auto;
+  list-style-type: none;
+  padding: 0;
+`;
+
+export const ListItem = styled.li`
+  font-size: 0.9em;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+
+  &:first-child {
+    margin-top: 1vh;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    font-weight: bold;
   }
 `;
