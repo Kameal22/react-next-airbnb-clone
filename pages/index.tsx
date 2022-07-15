@@ -15,6 +15,8 @@ const Home: NextPage<Props> = ({ data }) => {
     router.push('/1id');
   }
 
+  console.log(data)
+
   return (
     <LandingPage data={data} />
   )
@@ -40,7 +42,7 @@ export const getStaticProps: GetStaticProps = async () => {
         country: place.country,
         city: place.city,
         area: place.area,
-        images: place.images,
+        image: place.image,
         host: place.host,
         cost: place.cost,
         rating: place.rating,

@@ -1,9 +1,3 @@
-export type images = {
-    main: string,
-    second: string,
-    third: string
-}
-
 export type amnesties = {
     seaView: boolean,
     kitchen: boolean,
@@ -20,7 +14,7 @@ export type apiDataTypes = {
     country: string,
     city: string,
     area: string,
-    images: images[],
+    image: string,
     host: string,
     cost: number,
     rating: number,

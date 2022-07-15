@@ -1,0 +1,290 @@
+[
+    {
+        "country": "Poland",
+        "city": "Katowice",
+        "area": "Forest",
+        "image": "https://images.pexels.com/photos/418831/pexels-photo-418831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Tom",
+        "cost": 399,
+        "rating": 4,
+        "term": "05-14 Dec",
+        "description": "Very nice forest in cool city Karowice in Poland.",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": true},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Gdynia",
+        "area": "Forest",
+        "image": "https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Eric",
+        "cost": 459,
+        "rating": 4.5,
+        "term": "01-14 Feb",
+        "description": "Very nice forest in cool city Gdynia in Poland.",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": true},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "United States",
+        "city": "New York",
+        "area": "City",
+        "image": "https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Eric",
+        "cost": 999,
+        "rating": 4.9,
+        "term": "05-14 Feb",
+        "description": "Big city life in New York in United States",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": true},
+            {"freeParking": false},
+            {"airConditioning": true},
+            {"animalsEnabled": false}
+        ]
+      },
+      {
+        "country": "United States",
+        "city": "Los Angeles",
+        "area": "City",
+        "image": "https://images.pexels.com/photos/2263683/pexels-photo-2263683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Bob",
+        "cost": 1059,
+        "rating": 4.8,
+        "term": "05-14 Feb",
+        "description": "Big city life in Los Angeles in United States",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": true},
+            {"freeParking": false},
+            {"airConditioning": true},
+            {"animalsEnabled": false}
+        ]
+      },
+      {
+        "country": "Germany",
+        "city": "Berlin",
+        "area": "Mansions",
+        "image": "https://images.pexels.com/photos/87378/pexels-photo-87378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Bob",
+        "cost": 2050,
+        "rating": 5,
+        "term": "05-14 Feb",
+        "description": "Big mansion in Berlin in Germany",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": true},
+            {"freeParking": false},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Germany",
+        "city": "Berlin",
+        "area": "Mansions",
+        "image": "https://images.pexels.com/photos/53610/large-home-residential-house-architecture-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Helga",
+        "cost": 1089,
+        "rating": 4,
+        "term": "05-14 Nov",
+        "description": "Big mansion in Berlin in Germany",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": true},
+            {"freeParking": false},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Sweden",
+        "city": "Stockholm",
+        "area": "tinyHomes",
+        "image": "https://images.pexels.com/photos/723876/pexels-photo-723876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Calr",
+        "cost": 199,
+        "rating": 3.8,
+        "term": "20-29 Nov",
+        "description": "Very tiny house in Stockholm in Sweden",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": false},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Sweden",
+        "city": "Stockholm",
+        "area": "tinyHomes",
+        "image": "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Erin",
+        "cost": 205,
+        "rating": 4.3,
+        "term": "20-29 Nov",
+        "description": "Very tiny house in Stockholm in Sweden",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": false},
+            {"freeParking": false},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Warsaw",
+        "area": "lakeFront",
+        "image": "https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "host": "Mariusz",
+        "cost": 499,
+        "rating": 4.3,
+        "term": "20-29 Nov",
+        "description": "lake are in Warsaw Poland",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": false},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Warsaw",
+        "area": "lakeFront",
+        "image": "https://images.pexels.com/photos/518485/pexels-photo-518485.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Tomasz",
+        "cost": 799,
+        "rating": 4.3,
+        "term": "20-29 Nov",
+        "description": "lake are in Warsaw Poland",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": false},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Grenland",
+        "city": "Nuuk",
+        "area": "arctic",
+        "image": "https://images.pexels.com/photos/3510717/pexels-photo-3510717.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Jim",
+        "cost": 1029,
+        "rating": 4.9,
+        "term": "20-29 Nov",
+        "description": "Cold area in Grenland Nuuk.",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": true},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Grenland",
+        "city": "Nuuk",
+        "area": "arctic",
+        "image": "https://images.pexels.com/photos/2574997/pexels-photo-2574997.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Bil",
+        "cost": 129,
+        "rating": 4.9,
+        "term": "20-29 Nov",
+        "description": "Cold area in Grenland Nuuk.",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": false},
+            {"freeParking": true},
+            {"airConditioning": false},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Hel",
+        "area": "sea",
+        "image": "https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Dawid",
+        "cost": 129,
+        "rating": 4.9,
+        "term": "20-29 Sep",
+        "description": "Seaside in Poland Hel peninsula",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": true},
+            {"freeParking": true},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Hel",
+        "area": "sea",
+        "image": "https://images.pexels.com/photos/330260/pexels-photo-330260.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Marek",
+        "cost": 500,
+        "rating": 4.9,
+        "term": "20-29 Sep",
+        "description": "Seaside in Poland Hel peninsula",
+        "amenties": [
+            {"tv": false},
+            {"wiFi": true},
+            {"freeParking": true},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Zakopane",
+        "area": "mountains",
+        "image": "https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Marek",
+        "cost": 500,
+        "rating": 4.9,
+        "term": "20-29 Sep",
+        "description": "Mountains in Zakopane, Poland",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": true},
+            {"freeParking": true},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      },
+      {
+        "country": "Poland",
+        "city": "Zakopane",
+        "area": "mountains",
+        "image": "https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "host": "Tim",
+        "cost": 578,
+        "rating": 4.9,
+        "term": "20-29 Sep",
+        "description": "Mountains in Zakopane, Poland",
+        "amenties": [
+            {"tv": true},
+            {"wiFi": true},
+            {"freeParking": true},
+            {"airConditioning": true},
+            {"animalsEnabled": true}
+        ]
+      }
+]
