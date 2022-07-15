@@ -56,23 +56,22 @@ export const DropdownStyled = styled.div`
 `;
 
 export const DropdownList = styled.ul`
-  width: 90%;
   margin: 0.5vh auto;
   list-style-type: none;
   padding: 0;
 `;
 
 export const ListItem = styled.li`
-  font-size: 0.9em;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-
-  &:first-child {
-    margin-top: 1vh;
-  }
+  font-size: 0.85em;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 0.5em;
+  width: 100%;
 
   &:hover {
     cursor: pointer;
+    background: rgba(233, 233, 233, 0.299);
+    border-radius: 15px;
   }
   span {
     font-weight: bold;

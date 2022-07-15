@@ -1,15 +1,16 @@
 import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
 
 interface Props {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    forwardRef: React.RefObject<HTMLDivElement>;
 }
 
-const Dropdown: React.FC<Props> = ({ setOpen }) => {
+const Dropdown: React.FC<Props> = ({ forwardRef }) => {
     return (
-        <DropdownStyled>
+        <DropdownStyled ref={forwardRef}>
             <DropdownList>
                 <ListItem><span>Sign up</span></ListItem>
                 <ListItem>Log in</ListItem>
+                <ListItem>Host your home</ListItem>
             </DropdownList>
         </DropdownStyled>
     )

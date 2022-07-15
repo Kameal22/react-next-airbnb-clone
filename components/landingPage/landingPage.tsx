@@ -1,5 +1,6 @@
 import { LandingPageStyledDiv } from "./styled/landingPage.styled";
 import { apiDataTypes } from "../../types/apiDataTypes";
+import FilterBar from "../filterBar/filterBar";
 
 interface Props {
     data: apiDataTypes[]
@@ -8,7 +9,7 @@ interface Props {
 const LandingPage: React.FC<Props> = ({ data }) => {
     return (
         <LandingPageStyledDiv>
-
+            <FilterBar />
         </LandingPageStyledDiv>
     )
 }
