@@ -8,7 +8,8 @@ interface Props {
 const FilterBarItem: React.FC<Props> = ({ area, icon }) => {
     return (
         <FilterBarItemStyled>
-            {area}
+            <i className={icon}></i>
+            <p>{area}</p>
         </FilterBarItemStyled>
     )
 }
