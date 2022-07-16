@@ -11,7 +11,6 @@ interface Props {
 const LandingPage: React.FC<Props> = ({ data }) => {
     const [filteredPlace, setFilteredPlace] = useState("");
 
-    // Filter the original Array by region selected in FilterBar component. 
     return (
         <LandingPageStyledDiv>
             <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import type { GetStaticProps, GetStaticPaths } from 'next'
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import { apiDataTypes } from "../../types/apiDataTypes";
 
 interface Props {
@@ -8,8 +8,6 @@ interface Props {
 }
 
 const Announcement: NextPage<Props> = ({ place }) => {
-
-    console.log(place)
 
     return (
         <div><h1>Announcement</h1></div>
@@ -38,6 +36,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: any) => {
     const announcementId = context.params.announcementId;
 
+    console.log(announcementId)
+
     const client = await MongoClient.connect(
         "mongodb+srv://kameal:kameal1996@next.bgzwk.mongodb.net/places?retryWrites=true&w=majority"
     );
@@ -46,13 +46,15 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     const placesCollection = db.collection("placesCollection");
 
-    const viewedPlace = await placesCollection.findOne({ _id: announcementId });
+    const viewedPlace = await placesCollection.findOne({ _id: new ObjectId(announcementId) });
+
+    console.log(viewedPlace)
 
     client.close();
 
     return {
         props: {
-            data: viewedPlace
+            data: JSON.parse(JSON.stringify(viewedPlace))
         }
     }
 }

@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { useRouter } from 'next/router';
 import LandingPage from '../components/landingPage/landingPage';
 import { apiDataTypes } from "../types/apiDataTypes";
 import { MongoClient } from "mongodb";
