@@ -9,14 +9,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ data }) => {
-  const router = useRouter();
-
-  const showAnnouncementHandler = () => {
-    router.push('/1id');
-  }
-
-  console.log(data)
-
   return (
     <LandingPage data={data} />
   )

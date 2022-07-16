@@ -24,6 +24,6 @@ export const FilterBarItemStyled = styled.div`
 
   &:hover {
     cursor: pointer;
-    color: black;
+    color: black !important;
   }
 `;

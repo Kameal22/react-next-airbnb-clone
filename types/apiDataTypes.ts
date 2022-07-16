@@ -12,6 +12,7 @@ export type amnesties = {
 
 export type apiDataTypes = {
     country: string,
+    id: string,
     city: string,
     area: string,
     image: string,
