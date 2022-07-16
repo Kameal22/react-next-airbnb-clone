@@ -1,17 +1,21 @@
 import { Places, LandingPageStyledDiv, Place } from "./styled/landingPage.styled";
 import { apiDataTypes } from "../../types/apiDataTypes";
 import FilterBar from "../filterBar/filterBar";
+import { useState } from "react";
 
 interface Props {
     data: apiDataTypes[]
 }
 
 const LandingPage: React.FC<Props> = ({ data }) => {
+    const [filteredPlace, setFilteredPlace] = useState("");
+
+    // Filter the original Array by region selected in FilterBar component. 
     return (
         <LandingPageStyledDiv>
-            <FilterBar />
+            <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
             <Places>
-                {data.map(place => {
+                {data.filter(place => place.area.toLowerCase().includes(filteredPlace.toLowerCase())).map(place => {
                     return (
                         <Place>
                             <img src={place.image} alt={place.area}></img>

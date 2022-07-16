@@ -2,14 +2,16 @@ import { FilterBarItemStyled } from "./styled/filterBar.styled"
 
 interface Props {
     area: string,
-    icon: string
+    icon: string,
+    filteredPlace: string,
+    selectPlace: React.Dispatch<React.SetStateAction<string>>
 }
 
-const FilterBarItem: React.FC<Props> = ({ area, icon }) => {
+const FilterBarItem: React.FC<Props> = ({ area, icon, filteredPlace, selectPlace }) => {
     return (
-        <FilterBarItemStyled>
+        <FilterBarItemStyled style={area === filteredPlace ? { color: "black" } : { color: "grey" }} onClick={() => selectPlace(area)}>
             <i className={icon}></i>
-            <p>{area}</p>
+            <p style={area === filteredPlace ? { fontWeight: "bold" } : { fontWeight: "normal" }}>{area}</p>
         </FilterBarItemStyled>
     )
 }
