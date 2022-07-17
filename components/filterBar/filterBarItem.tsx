@@ -8,8 +8,6 @@ interface Props {
 }
 
 const FilterBarItem: React.FC<Props> = ({ area, icon, filteredPlace, selectPlace }) => {
-
-    console.log("SECOND_TEST")
     return (
         <FilterBarItemStyled style={area === filteredPlace ? { color: "black" } : { color: "grey" }} onClick={() => selectPlace(area)}>
             <i className={icon}></i>
