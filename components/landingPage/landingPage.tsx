@@ -19,11 +19,11 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                     return (
                         <Link key={place.image} href={`/${place.id}`}>
                             <Place >
-                                <img src={place.image} alt={place.area}></img>
+                                <img src={place.image} alt={place.area} />
                                 <div>
                                     <h2>{place.city}, {place.country}</h2>
                                     <div>
-                                        <i className="bi bi-star-fill"></i>
+                                        <i className="bi bi-star-fill" />
                                         <p>{place.rating}</p>
                                     </div>
                                 </div>
