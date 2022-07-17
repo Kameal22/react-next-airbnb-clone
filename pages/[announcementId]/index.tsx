@@ -9,7 +9,6 @@ interface Props {
 }
 
 const AnnouncementPage: NextPage<Props> = ({ place }) => {
-    console.log(place)
     return (
         <Announcement place={place} />
     )

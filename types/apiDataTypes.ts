@@ -1,15 +1,3 @@
-export type amnesties = {
-    seaView: boolean,
-    kitchen: boolean,
-    terrace: boolean,
-    beachAccess: boolean,
-    tv: boolean,
-    wiFi: boolean,
-    freeParking: boolean,
-    airConditioning: boolean,
-    animalsEnabled: boolean
-}
-
 export type apiDataTypes = {
     country: string,
     id: string,
@@ -21,5 +9,5 @@ export type apiDataTypes = {
     rating: number,
     term: string,
     description: string,
-    amnesties: amnesties[]
+    amenties: string[]
 }

@@ -9,13 +9,7 @@
         "rating": 4,
         "term": "05-14 Dec",
         "description": "Very nice forest in cool city Karowice in Poland.",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": true},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "free parking", "animals enabled"]
       },
       {
         "country": "Poland",
@@ -27,13 +21,7 @@
         "rating": 4.5,
         "term": "01-14 Feb",
         "description": "Very nice forest in cool city Gdynia in Poland.",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": true},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "United States",
@@ -45,13 +33,7 @@
         "rating": 4.9,
         "term": "05-14 Feb",
         "description": "Big city life in New York in United States",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": true},
-            {"freeParking": false},
-            {"airConditioning": true},
-            {"animalsEnabled": false}
-        ]
+        "amenties": ["free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "United States",
@@ -63,13 +45,7 @@
         "rating": 4.8,
         "term": "05-14 Feb",
         "description": "Big city life in Los Angeles in United States",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": true},
-            {"freeParking": false},
-            {"airConditioning": true},
-            {"animalsEnabled": false}
-        ]
+        "amenties": ["free parking", "animals enabled"]
       },
       {
         "country": "Germany",
@@ -81,13 +57,7 @@
         "rating": 5,
         "term": "05-14 Feb",
         "description": "Big mansion in Berlin in Germany",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": true},
-            {"freeParking": false},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Germany",
@@ -99,13 +69,7 @@
         "rating": 4,
         "term": "05-14 Nov",
         "description": "Big mansion in Berlin in Germany",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": true},
-            {"freeParking": false},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi",  "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Sweden",
@@ -117,13 +81,7 @@
         "rating": 3.8,
         "term": "20-29 Nov",
         "description": "Very tiny house in Stockholm in Sweden",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": false},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi",  "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Sweden",
@@ -135,13 +93,7 @@
         "rating": 4.3,
         "term": "20-29 Nov",
         "description": "Very tiny house in Stockholm in Sweden",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": false},
-            {"freeParking": false},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi",  "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -153,13 +105,7 @@
         "rating": 4.3,
         "term": "20-29 Nov",
         "description": "lake are in Warsaw Poland",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": false},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -171,13 +117,7 @@
         "rating": 4.3,
         "term": "20-29 Nov",
         "description": "lake are in Warsaw Poland",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": false},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi"]
       },
       {
         "country": "Grenland",
@@ -189,13 +129,7 @@
         "rating": 4.9,
         "term": "20-29 Nov",
         "description": "Cold area in Grenland Nuuk.",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": true},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi",  "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Grenland",
@@ -207,13 +141,7 @@
         "rating": 4.9,
         "term": "20-29 Nov",
         "description": "Cold area in Grenland Nuuk.",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": false},
-            {"freeParking": true},
-            {"airConditioning": false},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "wifi",  "free parking", "animals enabled", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -225,13 +153,7 @@
         "rating": 4.9,
         "term": "20-29 Sep",
         "description": "Seaside in Poland Hel peninsula",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": true},
-            {"freeParking": true},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "animals enabled", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -243,13 +165,7 @@
         "rating": 4.9,
         "term": "20-29 Sep",
         "description": "Seaside in Poland Hel peninsula",
-        "amenties": [
-            {"tv": false},
-            {"wiFi": true},
-            {"freeParking": true},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "animals enabled", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -261,13 +177,7 @@
         "rating": 4.9,
         "term": "20-29 Sep",
         "description": "Mountains in Zakopane, Poland",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": true},
-            {"freeParking": true},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "animals enabled", "air conditioning"]
       },
       {
         "country": "Poland",
@@ -279,12 +189,6 @@
         "rating": 4.9,
         "term": "20-29 Sep",
         "description": "Mountains in Zakopane, Poland",
-        "amenties": [
-            {"tv": true},
-            {"wiFi": true},
-            {"freeParking": true},
-            {"airConditioning": true},
-            {"animalsEnabled": true}
-        ]
+        "amenties": ["tv", "air conditioning"]
       }
 ]

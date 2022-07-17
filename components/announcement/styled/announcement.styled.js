@@ -11,6 +11,16 @@ export const AnnouncementStyled = styled.div`
   h2 {
     font-size: 0.9rem;
   }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: grey;
+    font-size: 0.85em;
+    margin-top: -2vh;
+  }
 `;
 
 export const AnnouncementImgs = styled.div`
@@ -29,5 +39,21 @@ export const AnnouncementImgs = styled.div`
       grid-column: span 2;
       grid-row: span 2;
     }
+  }
+`;
+
+export const AnnouncementAmenties = styled.div`
+  width: 60%;
+  margin-top: 4vh;
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-weight: bold;
+    color: black;
+    font-size: 1rem;
+    margin-top: 1vh;
   }
 `;
