@@ -2,15 +2,16 @@ import { NextPage } from "next";
 import type { GetStaticProps, GetStaticPaths } from 'next'
 import { MongoClient, ObjectId } from "mongodb";
 import { apiDataTypes } from "../../types/apiDataTypes";
+import Announcement from "../../components/announcement/announcement";
 
 interface Props {
     place: apiDataTypes
 }
 
-const Announcement: NextPage<Props> = ({ place }) => {
-
+const AnnouncementPage: NextPage<Props> = ({ place }) => {
+    console.log(place)
     return (
-        <div><h1>Announcement</h1></div>
+        <Announcement place={place} />
     )
 }
 
@@ -36,8 +37,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: any) => {
     const announcementId = context.params.announcementId;
 
-    console.log(announcementId)
-
     const client = await MongoClient.connect(
         "mongodb+srv://kameal:kameal1996@next.bgzwk.mongodb.net/places?retryWrites=true&w=majority"
     );
@@ -48,15 +47,13 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     const viewedPlace = await placesCollection.findOne({ _id: new ObjectId(announcementId) });
 
-    console.log(viewedPlace)
-
     client.close();
 
     return {
         props: {
-            data: JSON.parse(JSON.stringify(viewedPlace))
+            place: JSON.parse(JSON.stringify(viewedPlace))
         }
     }
 }
 
-export default Announcement;
+export default AnnouncementPage;
