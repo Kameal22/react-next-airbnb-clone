@@ -4,6 +4,7 @@ import FilterBar from "../filterBar/filterBar";
 import { useEffect, useMemo, useState } from "react";
 import Link from 'next/link';
 import Navbar from "../navigation/Navbar";
+import Register from "../register/Register";
 
 interface Props {
     data: apiDataTypes[]
@@ -13,6 +14,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     const [shownData, setShownData] = useState<apiDataTypes[]>([]);
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
+    const [registering, setRegistering] = useState(false);
 
     useEffect(() => {
         setShownData(data)
@@ -36,11 +38,11 @@ const LandingPage: React.FC<Props> = ({ data }) => {
 
     return (
         <>
-            <Navbar clearFilters={clearFilters} setSearchData={setSearchData} />
+            <Navbar setRegistering={setRegistering} clearFilters={clearFilters} setSearchData={setSearchData} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
-                    {filteredPlaces.filter(place => place.city.toLowerCase().includes(searchData.toLowerCase())).map(place => {
+                    {filteredPlaces.filter(place => place.country.toLowerCase().includes(searchData.toLowerCase())).map(place => {
                         return (
                             <Link key={place.image} href={`/${place.id}`}>
                                 <Place >
@@ -59,6 +61,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                         )
                     })}
                 </Places>
+                {registering && <Register setRegistering={setRegistering} />}
             </LandingPageStyledDiv>
         </>
     )

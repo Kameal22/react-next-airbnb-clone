@@ -8,18 +8,15 @@ async function handler(req, res) {
     const client = await MongoClient.connect(
       "mongodb+srv://kameal:kameal1996@next.bgzwk.mongodb.net/places?retryWrites=true&w=majority"
     );
-
     const db = client.db();
 
-    const placesCollection = db.collection("places");
+    const usersCollection = db.collection("users");
 
-    const result = await placesCollection.insertOne(data);
-
-    console.log(result);
+    const result = await usersCollection.insertOne(data);
 
     client.close();
 
-    res.status(201);
+    res.status(201).json({ message: "User registered" });
   }
 }
 
