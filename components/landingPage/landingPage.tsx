@@ -12,6 +12,7 @@ interface Props {
 const LandingPage: React.FC<Props> = ({ data }) => {
     const [shownData, setShownData] = useState<apiDataTypes[]>([]);
     const [filteredPlace, setFilteredPlace] = useState("");
+    const [searchData, setSearchData] = useState("");
 
     useEffect(() => {
         setShownData(data)
@@ -35,11 +36,11 @@ const LandingPage: React.FC<Props> = ({ data }) => {
 
     return (
         <>
-            <Navbar clearFilters={clearFilters} data={shownData} />
+            <Navbar clearFilters={clearFilters} setSearchData={setSearchData} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
-                    {filteredPlaces.map(place => {
+                    {filteredPlaces.filter(place => place.city.toLowerCase().includes(searchData.toLowerCase())).map(place => {
                         return (
                             <Link key={place.image} href={`/${place.id}`}>
                                 <Place >

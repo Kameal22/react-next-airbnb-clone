@@ -1,17 +1,16 @@
 import Link from 'next/link'
 import { useRef, useState } from 'react';
 import Dropdown from './Dropdown';
-import { NavbarDiv, NavbarLogo, NavSearch, NavRegisterDiv } from "./styled/navbar.styled";
+import { NavbarDiv, NavbarLogo, NavRegisterDiv } from "./styled/navbar.styled";
 import UseClickOutside from '../../hooks/useClickOutside';
 import Search from './Search';
-import { apiDataTypes } from "../../types/apiDataTypes";
 
 interface Props {
-    data: apiDataTypes[]
+    setSearchData: React.Dispatch<React.SetStateAction<string>>
     clearFilters: () => void;
 }
 
-const Navbar: React.FC<Props> = ({ data, clearFilters }) => {
+const Navbar: React.FC<Props> = ({ setSearchData, clearFilters }) => {
     const [open, setOpen] = useState(false);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -23,7 +22,7 @@ const Navbar: React.FC<Props> = ({ data, clearFilters }) => {
             <Link href="/">
                 <NavbarLogo onClick={() => clearFilters()}>airbnb</NavbarLogo>
             </Link>
-            <Search />
+            <Search setSearchData={setSearchData} />
             <NavRegisterDiv onClick={() => setOpen(!open)}>
                 <i className="bi bi-list"></i>
                 <i className="bi bi-person-circle"></i>
