@@ -4,8 +4,14 @@ import Dropdown from './Dropdown';
 import { NavbarDiv, NavbarLogo, NavSearch, NavRegisterDiv } from "./styled/navbar.styled";
 import UseClickOutside from '../../hooks/useClickOutside';
 import Search from './Search';
+import { apiDataTypes } from "../../types/apiDataTypes";
 
-const Navbar: React.FC = () => {
+interface Props {
+    data: apiDataTypes[]
+    clearFilters: () => void;
+}
+
+const Navbar: React.FC<Props> = ({ data, clearFilters }) => {
     const [open, setOpen] = useState(false);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -15,7 +21,7 @@ const Navbar: React.FC = () => {
     return (
         <NavbarDiv>
             <Link href="/">
-                <NavbarLogo>airbnb</NavbarLogo>
+                <NavbarLogo onClick={() => clearFilters()}>airbnb</NavbarLogo>
             </Link>
             <Search />
             <NavRegisterDiv onClick={() => setOpen(!open)}>

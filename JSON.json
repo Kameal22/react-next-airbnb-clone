@@ -74,7 +74,7 @@
       {
         "country": "Sweden",
         "city": "Stockholm",
-        "area": "tinyHomes",
+        "area": "tiny Homes",
         "image": "https://images.pexels.com/photos/723876/pexels-photo-723876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "host": "Calr",
         "cost": 199,
@@ -86,7 +86,7 @@
       {
         "country": "Sweden",
         "city": "Stockholm",
-        "area": "tinyHomes",
+        "area": "tiny Homes",
         "image": "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "host": "Erin",
         "cost": 205,
@@ -98,7 +98,7 @@
       {
         "country": "Poland",
         "city": "Warsaw",
-        "area": "lakeFront",
+        "area": "lake Front",
         "image": "https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "host": "Mariusz",
         "cost": 499,
@@ -110,7 +110,7 @@
       {
         "country": "Poland",
         "city": "Warsaw",
-        "area": "lakeFront",
+        "area": "lake Front",
         "image": "https://images.pexels.com/photos/518485/pexels-photo-518485.jpeg?auto=compress&cs=tinysrgb&w=600",
         "host": "Tomasz",
         "cost": 799,
