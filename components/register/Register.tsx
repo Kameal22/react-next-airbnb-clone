@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { RegisterDiv } from "./styled/register.styled";
+import { useSetUser } from "../../context/userContext";
 
-type userData = {
+type user = {
     login: string,
     password: string
 }
@@ -12,11 +13,13 @@ interface Props {
 }
 
 const Register: React.FC<Props> = ({ setRegistering }) => {
+    const setUser = useSetUser();
+
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const registerUser = async (data: userData) => {
+    const registerUser = async (data: user) => {
         const response = await axios.post('/api/new-announcement', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -24,6 +27,7 @@ const Register: React.FC<Props> = ({ setRegistering }) => {
                 'Content-type': 'application/json'
             }
         });
+        setUser(data)
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,6 +38,7 @@ const Register: React.FC<Props> = ({ setRegistering }) => {
         } else {
             registerUser(user);
         }
+        setRegistering(false);
     }
 
     const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {

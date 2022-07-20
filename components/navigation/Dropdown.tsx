@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
 
 interface Props {
@@ -7,6 +9,7 @@ interface Props {
 }
 
 const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, showDropdown }) => {
+    const user = useContext(UserContext);
 
     const showRegistering = () => {
         setRegistering(true)
@@ -15,8 +18,9 @@ const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, showDropdown })
     return (
         <DropdownStyled ref={forwardRef}>
             <DropdownList>
-                <ListItem onClick={() => showRegistering()}><span>Sign up</span></ListItem>
-                <ListItem>Log in</ListItem>
+
+                {user.login ? <ListItem><span>{user.login}</span></ListItem> : <><ListItem onClick={() => showRegistering()}><span>Sign up</span></ListItem><ListItem>Log in</ListItem>
+                </>}
                 <ListItem>Host your home</ListItem>
             </DropdownList>
         </DropdownStyled>

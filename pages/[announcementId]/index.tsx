@@ -3,6 +3,7 @@ import type { GetStaticProps, GetStaticPaths } from 'next'
 import { MongoClient, ObjectId } from "mongodb";
 import { apiDataTypes } from "../../types/apiDataTypes";
 import Announcement from "../../components/announcement/announcement";
+import AnnouncementNav from "../../components/navigation/AnnouncementNav";
 
 interface Props {
     place: apiDataTypes
@@ -10,7 +11,10 @@ interface Props {
 
 const AnnouncementPage: NextPage<Props> = ({ place }) => {
     return (
-        <Announcement place={place} />
+        <>
+            <AnnouncementNav />
+            <Announcement place={place} />
+        </>
     )
 }
 
