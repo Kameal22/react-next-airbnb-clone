@@ -10,9 +10,10 @@ type user = {
 
 interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
+    setOpen: () => void
 }
 
-const Register: React.FC<Props> = ({ setRegistering }) => {
+const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
     const setUser = useSetUser();
 
     const [login, setLogin] = useState("");
@@ -20,7 +21,7 @@ const Register: React.FC<Props> = ({ setRegistering }) => {
     const [error, setError] = useState("");
 
     const registerUser = async (data: user) => {
-        const response = await axios.post('/api/new-announcement', {
+        await axios.post('/api/new-announcement', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -39,6 +40,7 @@ const Register: React.FC<Props> = ({ setRegistering }) => {
             registerUser(user);
         }
         setRegistering(false);
+        setOpen()
     }
 
     const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {

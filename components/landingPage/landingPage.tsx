@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import Link from 'next/link';
 import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
 
 interface Props {
     data: apiDataTypes[]
@@ -15,6 +17,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
     const [registering, setRegistering] = useState(false);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         setShownData(data)
@@ -35,6 +38,15 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     }
 
     const filteredPlaces = useMemo(filterData, [filteredPlace, shownData])
+
+
+    const showMessage = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <>
@@ -61,8 +73,18 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                         )
                     })}
                 </Places>
-                {registering && <Register setRegistering={setRegistering} />}
+                {registering && <Register setOpen={showMessage} setRegistering={setRegistering} />}
             </LandingPageStyledDiv>
+            <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                open={open}
+                autoHideDuration={1500}
+                onClose={handleClose}
+                message={<span id="messageId">User registered</span>}
+                ContentProps={{
+                    "aria-describedby": "messageId"
+                }}
+            />
         </>
     )
 }
