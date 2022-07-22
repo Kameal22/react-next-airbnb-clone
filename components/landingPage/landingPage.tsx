@@ -7,6 +7,7 @@ import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
 import Snackbar from '@mui/material/Snackbar';
 import Login from "../login/Login";
+import useClickOutside from "../../hooks/useClickOutside";
 
 interface Props {
     data: apiDataTypes[]
