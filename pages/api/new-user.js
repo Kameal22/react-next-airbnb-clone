@@ -12,7 +12,7 @@ async function handler(req, res) {
 
     const usersCollection = db.collection("users");
 
-    const result = await usersCollection.insertOne(data);
+    await usersCollection.insertOne(data);
 
     client.close();
 

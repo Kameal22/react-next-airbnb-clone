@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
 import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
+import Login from "../login/Login";
 
 interface Props {
     data: apiDataTypes[]
@@ -17,6 +17,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
     const [registering, setRegistering] = useState(false);
+    const [loggingIn, setLogginIn] = useState(false);
     const [open, setOpen] = useState(false);
     const [secondaryOpen, setSecondaryOpen] = useState(false);
 
@@ -59,7 +60,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
 
     return (
         <>
-            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} clearFilters={clearFilters} setSearchData={setSearchData} />
+            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} setLogging={setLogginIn} clearFilters={clearFilters} setSearchData={setSearchData} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
@@ -83,13 +84,14 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                     })}
                 </Places>
                 {registering && <Register setOpen={showMessage} setRegistering={setRegistering} />}
+                {loggingIn && <Login setLogging={setLogginIn} setOpen={showMessage} />}
             </LandingPageStyledDiv>
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                 open={open}
                 autoHideDuration={1500}
                 onClose={handleClose}
-                message={<span id="messageId">User registered</span>}
+                message={<span id="messageId">User logged in</span>}
                 ContentProps={{
                     "aria-describedby": "messageId"
                 }}

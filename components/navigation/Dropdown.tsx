@@ -4,11 +4,12 @@ import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
 interface Props {
     forwardRef: React.RefObject<HTMLDivElement>;
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
+    setLogging: React.Dispatch<React.SetStateAction<boolean>>
     showDropdown: React.Dispatch<React.SetStateAction<boolean>>
     showMessage: () => void;
 }
 
-const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, showDropdown, showMessage }) => {
+const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, setLogging, showDropdown, showMessage }) => {
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -25,18 +26,42 @@ const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, showDropdown, s
         showDropdown(false)
     }
 
+    const showLogging = () => {
+        setLogging(true)
+        showDropdown(false)
+    }
+
     const logout = () => {
         localStorage.clear();
         showDropdown(false);
         setUser("")
         showMessage();
     }
+
+    const loggedInMenu = () => {
+        return (
+            <>
+                <ListItem>
+                    <span>{user}</span>
+                </ListItem>
+                <ListItem>Host Your home</ListItem>
+                <ListItem onClick={() => logout()}>Logout</ListItem>
+            </>
+        )
+    }
+
+    const notLoggedInMenu = () => {
+        return (
+            <>
+                <ListItem onClick={() => showRegistering()}><span>Sign up</span></ListItem>
+                <ListItem onClick={() => showLogging()}>Log in</ListItem>
+            </>
+        )
+    }
     return (
         <DropdownStyled ref={forwardRef}>
             <DropdownList>
-
-                {user ? <ListItem><span>{user}</span></ListItem> : <><ListItem onClick={() => showRegistering()}><span>Sign up</span></ListItem><ListItem>Log in</ListItem></>}
-                {user ? <ListItem onClick={() => logout()}>Logout</ListItem> : <ListItem>Host your home</ListItem>}
+                {user ? loggedInMenu() : notLoggedInMenu()}
             </DropdownList>
         </DropdownStyled>
     )

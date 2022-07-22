@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { RegisterDiv } from "./styled/register.styled";
+import { LoginDiv } from "./styled/login.styled";
 
 type user = {
     login: string,
@@ -8,34 +8,33 @@ type user = {
 }
 
 interface Props {
-    setRegistering: React.Dispatch<React.SetStateAction<boolean>>
+    setLogging: React.Dispatch<React.SetStateAction<boolean>>
     setOpen: () => void
 }
 
-const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
-
+const Login: React.FC<Props> = ({ setLogging, setOpen }) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const registerUser = async (data: user) => {
-        await axios.post('/api/new-user', {
-            login: data.login,
-            password: data.password
+    const loginUser = async (user: user) => {
+        const { data } = await axios.post('/api/log-in', {
+            login: user.login,
+            password: user.password
         });
-        window.localStorage.setItem('user', JSON.stringify(data))
+        if (data.success) {
+            window.localStorage.setItem('user', JSON.stringify(data))
+            setLogging(false)
+            setOpen()
+        } else {
+            setError("Invalid username or password")
+        }
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const user = { login, password };
-        if (login === "" || password === "") {
-            setError("Please provide name and password");
-        } else {
-            registerUser(user);
-            setOpen()
-            setRegistering(false);
-        }
+        loginUser(user)
     }
 
     const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -46,9 +45,9 @@ const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
         setPassword(e.currentTarget.value);
     }
     return (
-        <RegisterDiv>
-            <h2>Sign up</h2>
-            <i onClick={() => setRegistering(false)} className="bi bi-x"></i>
+        <LoginDiv>
+            <h2>Log in</h2>
+            <i onClick={() => setLogging(false)} className="bi bi-x"></i>
 
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>
@@ -72,8 +71,8 @@ const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
                     Submit
                 </button>
             </form>
-        </RegisterDiv>
+        </LoginDiv>
     )
 }
 
-export default Register;
+export default Login;

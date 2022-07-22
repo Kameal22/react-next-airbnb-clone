@@ -9,10 +9,11 @@ interface Props {
     setSearchData: React.Dispatch<React.SetStateAction<string>>
     clearFilters: () => void;
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
+    setLogging: React.Dispatch<React.SetStateAction<boolean>>
     showMessage: () => void;
 }
 
-const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, showMessage }) => {
+const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, setLogging, showMessage }) => {
     const [open, setOpen] = useState(false);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -30,7 +31,7 @@ const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, 
                 <i className="bi bi-person-circle"></i>
             </NavRegisterDiv>
 
-            {open && <Dropdown showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} forwardRef={dropdownRef} />}
+            {open && <Dropdown setLogging={setLogging} showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} forwardRef={dropdownRef} />}
         </NavbarDiv>
     )
 }
