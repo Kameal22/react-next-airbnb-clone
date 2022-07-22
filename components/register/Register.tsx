@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { RegisterDiv } from "./styled/register.styled";
-import { useSetUser } from "../../context/userContext";
 
 type user = {
     login: string,
@@ -14,7 +13,6 @@ interface Props {
 }
 
 const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
-    const setUser = useSetUser();
 
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
@@ -28,7 +26,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
                 'Content-type': 'application/json'
             }
         });
-        setUser(data)
+        window.localStorage.setItem('user', JSON.stringify(data))
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -38,9 +36,9 @@ const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
             setError("Please provide name and password");
         } else {
             registerUser(user);
+            setOpen()
+            setRegistering(false);
         }
-        setRegistering(false);
-        setOpen()
     }
 
     const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {

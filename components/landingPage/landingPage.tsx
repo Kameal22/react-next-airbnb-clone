@@ -18,6 +18,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     const [searchData, setSearchData] = useState("");
     const [registering, setRegistering] = useState(false);
     const [open, setOpen] = useState(false);
+    const [secondaryOpen, setSecondaryOpen] = useState(false);
 
     useEffect(() => {
         setShownData(data)
@@ -48,9 +49,17 @@ const LandingPage: React.FC<Props> = ({ data }) => {
         setOpen(false)
     }
 
+    const showSecondaryMessage = () => {
+        setSecondaryOpen(true)
+    }
+
+    const handleSecondaryClose = () => {
+        setSecondaryOpen(false)
+    }
+
     return (
         <>
-            <Navbar setRegistering={setRegistering} clearFilters={clearFilters} setSearchData={setSearchData} />
+            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} clearFilters={clearFilters} setSearchData={setSearchData} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
@@ -83,6 +92,16 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                 message={<span id="messageId">User registered</span>}
                 ContentProps={{
                     "aria-describedby": "messageId"
+                }}
+            />
+            <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                open={secondaryOpen}
+                autoHideDuration={1500}
+                onClose={handleSecondaryClose}
+                message={<span id="second-messageId">Logged out succesfully</span>}
+                ContentProps={{
+                    "aria-describedby": "second-messageId"
                 }}
             />
         </>
