@@ -9,10 +9,10 @@ type user = {
 
 interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
-    setOpen: () => void
+    setOpenSnackbar: () => void
 }
 
-const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
+const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar }) => {
 
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
@@ -33,7 +33,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpen }) => {
             setError("Please provide name and password");
         } else {
             registerUser(user);
-            setOpen()
+            setOpenSnackbar()
             setRegistering(false);
         }
     }

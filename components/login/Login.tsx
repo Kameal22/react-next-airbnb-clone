@@ -9,10 +9,10 @@ type user = {
 
 interface Props {
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
-    setOpen: () => void
+    setOpenSnackbar: () => void
 }
 
-const Login: React.FC<Props> = ({ setLogging, setOpen }) => {
+const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -25,7 +25,7 @@ const Login: React.FC<Props> = ({ setLogging, setOpen }) => {
         if (data.success) {
             window.localStorage.setItem('user', JSON.stringify(data))
             setLogging(false)
-            setOpen()
+            setOpenSnackbar()
         } else {
             setError("Invalid username or password")
         }

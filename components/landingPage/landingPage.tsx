@@ -19,7 +19,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     const [searchData, setSearchData] = useState("");
     const [registering, setRegistering] = useState(false);
     const [loggingIn, setLogginIn] = useState(false);
-    const [open, setOpen] = useState(false);
+    const [openSnackbar, setOpenSnackbar] = useState(false);
     const [secondaryOpen, setSecondaryOpen] = useState(false);
 
     useEffect(() => {
@@ -44,11 +44,11 @@ const LandingPage: React.FC<Props> = ({ data }) => {
 
 
     const showMessage = () => {
-        setOpen(true)
+        setOpenSnackbar(true)
     }
 
     const handleClose = () => {
-        setOpen(false)
+        setOpenSnackbar(false)
     }
 
     const showSecondaryMessage = () => {
@@ -84,12 +84,12 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                         )
                     })}
                 </Places>
-                {registering && <Register setOpen={showMessage} setRegistering={setRegistering} />}
-                {loggingIn && <Login setLogging={setLogginIn} setOpen={showMessage} />}
+                {registering && <Register setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
+                {loggingIn && <Login setLogging={setLogginIn} setOpenSnackbar={showMessage} />}
             </LandingPageStyledDiv>
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                open={open}
+                open={openSnackbar}
                 autoHideDuration={1500}
                 onClose={handleClose}
                 message={<span id="messageId">User logged in</span>}
