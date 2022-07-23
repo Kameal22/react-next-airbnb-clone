@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { RegisterDiv } from "./styled/register.styled";
+import { Disclaimer, RegisterDiv } from "./styled/register.styled";
+import { useRouter } from "next/router";
 
 type user = {
     login: string,
@@ -9,14 +10,16 @@ type user = {
 
 interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
+    setLogging: React.Dispatch<React.SetStateAction<boolean>>
     setOpenSnackbar: () => void
 }
 
-const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar }) => {
-
+const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging }) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
+    const router = useRouter();
 
     const registerUser = async (data: user) => {
         await axios.post('/api/new-user', {
@@ -35,6 +38,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar }) => {
             registerUser(user);
             setOpenSnackbar()
             setRegistering(false);
+            router.push('/');
         }
     }
 
@@ -45,10 +49,20 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar }) => {
     const handlePasswordChange = (e: React.FormEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value);
     }
+
+    const handleCloseRegistering = () => {
+        setRegistering(false)
+        router.push('/')
+    }
+
+    const handleAlreadyHasAccount = () => {
+        setRegistering(false)
+        setLogging(true)
+    }
     return (
         <RegisterDiv>
             <h2>Sign up</h2>
-            <i onClick={() => setRegistering(false)} className="bi bi-x"></i>
+            <i onClick={handleCloseRegistering} className="bi bi-x"></i>
 
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>
@@ -68,6 +82,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar }) => {
                     />
                 </div>
                 <p>{error}</p>
+                <Disclaimer onClick={handleAlreadyHasAccount}>Already have an account?</Disclaimer>
                 <button className="submitBtn" type="submit">
                     Submit
                 </button>

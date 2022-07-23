@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { LoginDiv } from "./styled/login.styled";
+import { useRouter } from "next/router";
 
 type user = {
     login: string,
@@ -16,6 +17,8 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
+    const router = useRouter();
 
     const loginUser = async (user: user) => {
         const { data } = await axios.post('/api/log-in', {
@@ -35,6 +38,8 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
         event.preventDefault();
         const user = { login, password };
         loginUser(user)
+        router.push('/');
+
     }
 
     const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -44,10 +49,15 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
     const handlePasswordChange = (e: React.FormEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value);
     }
+
+    const handleCloseLoggin = () => {
+        setLogging(false)
+        router.push('/');
+    }
     return (
         <LoginDiv>
             <h2>Log in</h2>
-            <i onClick={() => setLogging(false)} className="bi bi-x"></i>
+            <i onClick={handleCloseLoggin} className="bi bi-x"></i>
 
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>

@@ -7,13 +7,13 @@ import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
 import Snackbar from '@mui/material/Snackbar';
 import Login from "../login/Login";
-import useClickOutside from "../../hooks/useClickOutside";
 
 interface Props {
     data: apiDataTypes[]
+    loggedIn: string | string[] | undefined
 }
 
-const LandingPage: React.FC<Props> = ({ data }) => {
+const LandingPage: React.FC<Props> = ({ data, loggedIn }) => {
     const [shownData, setShownData] = useState<apiDataTypes[]>([]);
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
@@ -25,6 +25,10 @@ const LandingPage: React.FC<Props> = ({ data }) => {
     useEffect(() => {
         setShownData(data)
     }, [])
+
+    useEffect(() => {
+        if (loggedIn !== undefined) setRegistering(true)
+    }, [loggedIn])
 
     const filterData = () => {
         if (!filteredPlace) {
@@ -84,7 +88,7 @@ const LandingPage: React.FC<Props> = ({ data }) => {
                         )
                     })}
                 </Places>
-                {registering && <Register setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
+                {registering && <Register setLogging={setLogginIn} setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
                 {loggingIn && <Login setLogging={setLogginIn} setOpenSnackbar={showMessage} />}
             </LandingPageStyledDiv>
             <Snackbar

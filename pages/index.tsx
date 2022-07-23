@@ -2,14 +2,17 @@ import type { GetStaticProps, NextPage } from 'next'
 import LandingPage from '../components/landingPage/landingPage';
 import { apiDataTypes } from "../types/apiDataTypes";
 import { MongoClient } from "mongodb";
+import { useRouter } from "next/router";
 
 interface Props {
   data: apiDataTypes[]
 }
 
 const Home: NextPage<Props> = ({ data }) => {
+  const router = useRouter();
+
   return (
-    <LandingPage data={data} />
+    <LandingPage loggedIn={router.query.loggedIn} data={data} />
   )
 }
 

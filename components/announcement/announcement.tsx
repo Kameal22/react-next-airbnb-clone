@@ -25,7 +25,7 @@ const Announcement: React.FC<Props> = ({ place }) => {
                 <h3>What this place offers:</h3>
                 {place.amenties.map(amentie => {
                     return (
-                        <p>{amentie}</p>
+                        <p key={amentie}>{amentie}</p>
                     )
                 })}
             </AnnouncementAmenties>

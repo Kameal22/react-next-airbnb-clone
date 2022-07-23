@@ -13,7 +13,7 @@ export const RegisterDiv = styled.div`
 
   p {
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   h2 {
@@ -63,5 +63,16 @@ export const RegisterDiv = styled.div`
         cursor: pointer;
       }
     }
+  }
+`;
+
+export const Disclaimer = styled.p`
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 0.6em !important;
+  color: black !important;
+
+  &:hover {
+    cursor: pointer;
   }
 `;

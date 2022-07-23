@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
 
@@ -44,7 +45,9 @@ const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, setLogging, sho
                 <ListItem>
                     <span>{user}</span>
                 </ListItem>
-                <ListItem>Host Your home</ListItem>
+                <Link href="/host">
+                    <ListItem>Host Your home</ListItem>
+                </Link>
                 <ListItem onClick={() => logout()}>Logout</ListItem>
             </>
         )
