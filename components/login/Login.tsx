@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { LoginDiv } from "./styled/login.styled";
 import { useRouter } from "next/router";
+import useInputState from "../../hooks/useInputState";
 
 type user = {
     login: string,
@@ -14,8 +15,8 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("");
+    const [login, handleLoginChange] = useInputState("");
+    const [password, handlePasswordChange] = useInputState("");
     const [error, setError] = useState("");
 
     const router = useRouter();
@@ -39,21 +40,13 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
         const user = { login, password };
         loginUser(user)
         router.push('/');
-
-    }
-
-    const handleLoginChange = (e: React.FormEvent<HTMLInputElement>) => {
-        setLogin(e.currentTarget.value);
-    }
-
-    const handlePasswordChange = (e: React.FormEvent<HTMLInputElement>) => {
-        setPassword(e.currentTarget.value);
     }
 
     const handleCloseLoggin = () => {
         setLogging(false)
         router.push('/');
     }
+
     return (
         <LoginDiv>
             <h2>Log in</h2>
