@@ -26,12 +26,13 @@ const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, 
                 <NavbarLogo onClick={() => clearFilters()}>airbnb</NavbarLogo>
             </Link>
             <Search setSearchData={setSearchData} />
-            <NavRegisterDiv onClick={() => setOpen(!open)}>
+            <NavRegisterDiv ref={dropdownRef} onClick={() => setOpen(!open)}>
                 <i className="bi bi-list"></i>
                 <i className="bi bi-person-circle"></i>
+                {open && <Dropdown setLogging={setLogging} showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} />}
             </NavRegisterDiv>
 
-            {open && <Dropdown setLogging={setLogging} showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} forwardRef={dropdownRef} />}
+
         </NavbarDiv>
     )
 }

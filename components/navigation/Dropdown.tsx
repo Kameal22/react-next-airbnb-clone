@@ -3,14 +3,13 @@ import { useEffect, useState } from "react";
 import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
 
 interface Props {
-    forwardRef: React.RefObject<HTMLDivElement>;
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
     showDropdown: React.Dispatch<React.SetStateAction<boolean>>
     showMessage: () => void;
 }
 
-const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, setLogging, showDropdown, showMessage }) => {
+const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, showMessage }) => {
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -62,7 +61,7 @@ const Dropdown: React.FC<Props> = ({ forwardRef, setRegistering, setLogging, sho
         )
     }
     return (
-        <DropdownStyled ref={forwardRef}>
+        <DropdownStyled >
             <DropdownList>
                 {user ? loggedInMenu() : notLoggedInMenu()}
             </DropdownList>

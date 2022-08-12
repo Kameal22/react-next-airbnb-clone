@@ -16,9 +16,8 @@ interface Props {
 }
 
 const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging }) => {
-    const [login, handleLoginChange] = useInputState("");
+    const [login, handleLoginChange, error, handleError] = useInputState("");
     const [password, handlePasswordChange] = useInputState("");
-    const [error, setError] = useState("");
 
     const router = useRouter();
 
@@ -34,7 +33,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging
         event.preventDefault();
         const user = { login, password };
         if (login === "" || password === "") {
-            setError("Please provide name and password");
+            handleError("Please provide name and password");
         } else {
             registerUser(user);
             setOpenSnackbar()

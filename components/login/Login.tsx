@@ -15,9 +15,8 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
-    const [login, handleLoginChange] = useInputState("");
+    const [login, handleLoginChange, error, handleError] = useInputState("");
     const [password, handlePasswordChange] = useInputState("");
-    const [error, setError] = useState("");
 
     const router = useRouter();
 
@@ -31,7 +30,7 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
             setLogging(false)
             setOpenSnackbar()
         } else {
-            setError("Invalid username or password")
+            handleError("Invalid username or password")
         }
     }
 
