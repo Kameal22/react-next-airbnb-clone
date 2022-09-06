@@ -54,7 +54,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging
     return (
         <RegisterDiv>
             <h2>Sign up</h2>
-            <i onClick={handleCloseRegistering} className="bi bi-x"></i>
+            <i onClick={handleCloseRegistering} className="bi bi-x" />
 
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>

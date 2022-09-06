@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AnnouncementStyled = styled.div`
-  width: 60%;
+  width: 70%;
   margin: 2vh auto;
 
   h1 {
@@ -81,7 +81,7 @@ export const AnnouncementAmenties = styled.div`
 `;
 
 export const AnnouncementReserve = styled.div`
-  width: 35%;
+  width: 40%;
   border: 1px solid lightgray;
   border-radius: 15px;
   -webkit-box-shadow: 1px 1px 13px -5px rgba(66, 68, 90, 1);

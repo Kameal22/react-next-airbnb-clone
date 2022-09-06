@@ -10,7 +10,7 @@ interface Props {
 const FilterBarItem: React.FC<Props> = ({ area, icon, filteredPlace, selectPlace }) => {
     return (
         <FilterBarItemStyled style={area === filteredPlace ? { color: "black" } : { color: "grey" }} onClick={() => selectPlace(area)}>
-            <i className={icon}></i>
+            <i className={icon} />
             <p style={area === filteredPlace ? { fontWeight: "bold" } : { fontWeight: "normal" }}>{area}</p>
         </FilterBarItemStyled>
     )

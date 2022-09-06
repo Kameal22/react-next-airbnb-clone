@@ -49,7 +49,7 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
     return (
         <LoginDiv>
             <h2>Log in</h2>
-            <i onClick={handleCloseLoggin} className="bi bi-x"></i>
+            <i onClick={handleCloseLoggin} className="bi bi-x" />
 
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>
