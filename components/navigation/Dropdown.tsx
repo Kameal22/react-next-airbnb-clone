@@ -7,10 +7,12 @@ interface Props {
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
     showDropdown: React.Dispatch<React.SetStateAction<boolean>>
     showMessage: () => void;
+    changeTheme: () => void
 }
 
-const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, showMessage }) => {
+const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, showMessage, changeTheme }) => {
     const [user, setUser] = useState("");
+    const [theme, setTheme] = useState("");
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem('user');
@@ -20,6 +22,20 @@ const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, s
             setUser(foundUser.login)
         }
     }, [])
+
+    useEffect(() => {
+        const theme = localStorage.getItem('theme');
+
+        if (theme) {
+            const chosenTheme = JSON.parse(theme)
+            setTheme(chosenTheme)
+        }
+    }, [])
+
+    const changeThemeFunc = () => {
+        changeTheme();
+        showDropdown(false)
+    }
 
     const showRegistering = () => {
         setRegistering(true)
@@ -47,7 +63,7 @@ const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, s
                 <Link href="/host">
                     <ListItem>Host Your home</ListItem>
                 </Link>
-                <ListItem onClick={() => logout()}>Logout</ListItem>
+                <ListItem onClick={logout}>Logout</ListItem>
             </>
         )
     }
@@ -55,8 +71,9 @@ const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, s
     const notLoggedInMenu = () => {
         return (
             <>
-                <ListItem onClick={() => showRegistering()}><span>Sign up</span></ListItem>
-                <ListItem onClick={() => showLogging()}>Log in</ListItem>
+                <ListItem onClick={showRegistering}><span>Sign up</span></ListItem>
+                <ListItem onClick={showLogging}>Log in</ListItem>
+                <ListItem onClick={changeThemeFunc}>{theme === "light" ? 'Dark mode' : 'Light mode'}</ListItem>
             </>
         )
     }

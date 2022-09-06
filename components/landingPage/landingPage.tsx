@@ -11,9 +11,10 @@ import Login from "../login/Login";
 interface Props {
     data: apiDataTypes[]
     loggedIn: string | string[] | undefined
+    changeTheme: () => void
 }
 
-const LandingPage: React.FC<Props> = ({ data, loggedIn }) => {
+const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
     const [shownData, setShownData] = useState<apiDataTypes[]>([]);
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
@@ -65,7 +66,7 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn }) => {
 
     return (
         <>
-            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} setLogging={setLogginIn} clearFilters={clearFilters} setSearchData={setSearchData} />
+            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} setLogging={setLogginIn} clearFilters={clearFilters} setSearchData={setSearchData} changeTheme={changeTheme} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>

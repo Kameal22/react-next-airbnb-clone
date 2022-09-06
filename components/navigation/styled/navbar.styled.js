@@ -7,6 +7,7 @@ export const NavbarDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: ${({ theme }) => theme.background.nav};
 `;
 
 export const NavbarLogo = styled.h2`

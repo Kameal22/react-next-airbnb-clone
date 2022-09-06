@@ -6,13 +6,14 @@ import { useRouter } from "next/router";
 
 interface Props {
   data: apiDataTypes[]
+  changeTheme: () => void
 }
 
-const Home: NextPage<Props> = ({ data }) => {
+const Home: NextPage<Props> = ({ data, changeTheme }) => {
   const router = useRouter();
 
   return (
-    <LandingPage loggedIn={router.query.loggedIn} data={data} />
+    <LandingPage loggedIn={router.query.loggedIn} data={data} changeTheme={changeTheme} />
   )
 }
 
