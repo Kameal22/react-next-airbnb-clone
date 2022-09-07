@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RegisterDiv = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.background.main};
   z-index: 999;
   border: 2px solid lightgray;
   border-radius: 20px;
@@ -13,18 +13,21 @@ export const RegisterDiv = styled.div`
 
   p {
     color: red;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   h2 {
     font-size: 1.2rem;
     text-align: center;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   i {
     position: absolute;
     top: 12px;
     left: 12px;
+    color: ${({ theme }) => theme.textColor.main};
 
     &:hover {
       cursor: pointer;
@@ -70,7 +73,7 @@ export const Disclaimer = styled.p`
   text-decoration: underline;
   font-weight: bold;
   font-size: 0.6em !important;
-  color: black !important;
+  color: ${({ theme }) => theme.textColor.main} !important;
 
   &:hover {
     cursor: pointer;

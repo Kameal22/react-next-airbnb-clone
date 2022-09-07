@@ -12,9 +12,10 @@ type user = {
 interface Props {
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
     setOpenSnackbar: () => void
+    forwardRef: React.RefObject<HTMLDivElement>;
 }
 
-const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
+const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar, forwardRef }) => {
     const [login, handleLoginChange, error, handleError] = useInputState("");
     const [password, handlePasswordChange] = useInputState("");
 
@@ -47,7 +48,7 @@ const Login: React.FC<Props> = ({ setLogging, setOpenSnackbar }) => {
     }
 
     return (
-        <LoginDiv>
+        <LoginDiv ref={forwardRef}>
             <h2>Log in</h2>
             <i onClick={handleCloseLoggin} className="bi bi-x" />
 

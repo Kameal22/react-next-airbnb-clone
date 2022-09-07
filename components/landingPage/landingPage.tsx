@@ -7,6 +7,8 @@ import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
 import Snackbar from '@mui/material/Snackbar';
 import Login from "../login/Login";
+import { useRef } from "react";
+import UseClickOutside from '../../hooks/useClickOutside';
 
 interface Props {
     data: apiDataTypes[]
@@ -30,6 +32,12 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
     useEffect(() => {
         if (loggedIn !== undefined) setRegistering(true)
     }, [loggedIn])
+
+    const registerRef = useRef<HTMLDivElement>(null);
+    const loginRef = useRef<HTMLDivElement>(null);
+
+    UseClickOutside(registerRef, () => setRegistering(false))
+    UseClickOutside(loginRef, () => setLogginIn(false))
 
     const filterData = () => {
         if (!filteredPlace) {
@@ -89,8 +97,8 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
                         )
                     })}
                 </Places>
-                {registering && <Register setLogging={setLogginIn} setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
-                {loggingIn && <Login setLogging={setLogginIn} setOpenSnackbar={showMessage} />}
+                {registering && <Register forwardRef={registerRef} setLogging={setLogginIn} setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
+                {loggingIn && <Login forwardRef={loginRef} setLogging={setLogginIn} setOpenSnackbar={showMessage} />}
             </LandingPageStyledDiv>
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}

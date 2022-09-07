@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const LandingPageStyledDiv = styled.div`
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  background-color: ${({ theme }) => theme.background.main};
+  padding-left: 5%;
+  padding-right: 5%;
+  min-height: 100vh;
 `;
 
 export const Places = styled.div`
@@ -16,6 +19,7 @@ export const Places = styled.div`
 
 export const Place = styled.div`
   margin-top: 2vh;
+  color: ${({ theme }) => theme.textColor.main};
 
   &:hover {
     cursor: pointer;

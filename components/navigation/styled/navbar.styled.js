@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavbarDiv = styled.div`
   position: relative;
-  border-bottom: 0.5px solid lightgray;
+  border-bottom: ${({ theme }) => theme.borders.border};
   padding: 0 5%;
   display: flex;
   align-items: center;
@@ -46,6 +46,7 @@ export const NavSearch = styled.input`
 `;
 
 export const NavRegisterDiv = styled.div`
+  background-color: ${({ theme }) => theme.background.navMenu};
   width: 6%;
   border-radius: 25px;
   border: 1px solid lightgrey;
@@ -74,7 +75,7 @@ export const DropdownStyled = styled.div`
   border-radius: 20px;
   border: 1px solid lightgray;
   z-index: 999;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background.dropdown};
 `;
 
 export const DropdownList = styled.ul`
@@ -89,6 +90,7 @@ export const ListItem = styled.li`
   padding-bottom: 1vh;
   padding-left: 0.5em;
   width: 100%;
+  color: ${({ theme }) => theme.textColor.dropdownLink};
 
   &:hover {
     cursor: pointer;

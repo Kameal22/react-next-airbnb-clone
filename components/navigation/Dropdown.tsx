@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DropdownStyled, DropdownList, ListItem } from "./styled/navbar.styled";
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
@@ -12,7 +13,7 @@ interface Props {
 
 const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, showMessage, changeTheme }) => {
     const [user, setUser] = useState("");
-    const [theme, setTheme] = useState("");
+    const [theme] = useLocalStorage("theme", "light");
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem('user');
@@ -20,15 +21,6 @@ const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, s
         if (loggedInUser) {
             const foundUser = JSON.parse(loggedInUser)
             setUser(foundUser.login)
-        }
-    }, [])
-
-    useEffect(() => {
-        const theme = localStorage.getItem('theme');
-
-        if (theme) {
-            const chosenTheme = JSON.parse(theme)
-            setTheme(chosenTheme)
         }
     }, [])
 

@@ -13,9 +13,10 @@ interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
     setOpenSnackbar: () => void
+    forwardRef: React.RefObject<HTMLDivElement>;
 }
 
-const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging }) => {
+const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging, forwardRef }) => {
     const [login, handleLoginChange, error, handleError] = useInputState("");
     const [password, handlePasswordChange] = useInputState("");
 
@@ -52,7 +53,7 @@ const Register: React.FC<Props> = ({ setRegistering, setOpenSnackbar, setLogging
         setLogging(true)
     }
     return (
-        <RegisterDiv>
+        <RegisterDiv ref={forwardRef}>
             <h2>Sign up</h2>
             <i onClick={handleCloseRegistering} className="bi bi-x" />
 

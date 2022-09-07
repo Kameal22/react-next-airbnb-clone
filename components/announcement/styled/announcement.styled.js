@@ -1,24 +1,42 @@
 import styled from "styled-components";
 
 export const AnnouncementStyled = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background-color: ${({ theme }) => theme.background.main};
+`;
+
+export const AnnouncementStyledMain = styled.div`
   width: 70%;
-  margin: 2vh auto;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+
+  i {
+    color: ${({ theme }) => theme.textColor.main};
+  }
 
   h1 {
     font-size: 1.4rem;
+    color: ${({ theme }) => theme.textColor.main};
+    margin: 0;
+    padding-top: 4vh;
   }
 
   h2 {
     font-size: 0.9rem;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   h3 {
     font-size: 1.25rem;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   p {
     color: black;
     font-size: 0.85em;
+    color: ${({ theme }) => theme.textColor.main};
   }
 `;
 
@@ -29,10 +47,12 @@ export const AnnouncementHeading = styled.div`
 
   p {
     margin-left: 0.5em;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   h2 {
     margin-left: 2em;
+    color: ${({ theme }) => theme.textColor.main};
   }
 `;
 
@@ -62,7 +82,6 @@ export const AnnouncementImgs = styled.div`
 
 export const AnnouncementMoreInfo = styled.div`
   display: flex;
-  margin-top: 2vh;
   justify-content: space-between;
 `;
 
@@ -71,12 +90,14 @@ export const AnnouncementAmenties = styled.div`
 
   h3 {
     font-size: 1.2rem;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   p {
     color: black;
     font-size: 0.9rem;
     margin-top: 1vh;
+    color: ${({ theme }) => theme.textColor.main};
   }
 `;
 
@@ -104,6 +125,7 @@ export const AnnouncementReserveHeading = styled.div`
   }
 
   h4 {
+    color: ${({ theme }) => theme.textColor.main};
     span {
       font-weight: normal;
       font-size: 0.9em;

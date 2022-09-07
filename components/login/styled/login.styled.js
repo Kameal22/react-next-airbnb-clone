@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginDiv = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.background.main};
   z-index: 999;
   border: 2px solid lightgray;
   border-radius: 20px;
@@ -14,17 +14,20 @@ export const LoginDiv = styled.div`
   p {
     color: red;
     font-size: 0.8rem;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   h2 {
     font-size: 1.2rem;
     text-align: center;
+    color: ${({ theme }) => theme.textColor.main};
   }
 
   i {
     position: absolute;
     top: 12px;
     left: 12px;
+    color: ${({ theme }) => theme.textColor.main};
 
     &:hover {
       cursor: pointer;

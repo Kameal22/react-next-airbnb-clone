@@ -1,25 +1,39 @@
 export const lightTheme = {
     background: {
       nav: 'white',
-      container: '#f7f0f5',
-      country: 'white',
-      details: 'white'
+      navMenu: 'white',
+      dropdown: 'white',
+      main: "white",
     },
     textColor: {
-      nav: 'black',
-      container: 'black'
+      dropdownLink: "black",
+      filterBar: "black",
+      main: "black"
+    },
+    borders: {
+      border: '0.5px solid lightgray;'
+    },
+    icons: {
+      iconColor: 'gray'
     }
   }
   
 export const darkTheme = {
     background: {
       nav: '#333533',
-      container: '#1b1c1b',
-      country: '#333533',
-      detaills: '#1b1c1b'
+      navMenu: 'white',
+      dropdown: '#333533',
+      main: '#333533'
     },
     textColor: {
-      nav: 'white',
-      container: 'white'
+      dropdownLink: "white",
+      filterBar: "white",
+      main: "white"
+    },
+    borders: {
+      border: 'none'
+    },
+    icons: {
+      iconColor: 'white'
     }
   }
