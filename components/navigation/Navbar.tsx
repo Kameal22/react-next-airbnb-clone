@@ -10,11 +10,12 @@ interface Props {
     clearFilters: () => void;
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
+    showUserMenu: () => void
     showMessage: () => void;
     changeTheme: () => void
 }
 
-const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, setLogging, showMessage, changeTheme }) => {
+const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, setLogging, showUserMenu, showMessage, changeTheme }) => {
     const [open, setOpen] = useState(false);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -30,10 +31,8 @@ const Navbar: React.FC<Props> = ({ setSearchData, clearFilters, setRegistering, 
             <NavRegisterDiv ref={dropdownRef} onClick={() => setOpen(!open)}>
                 <i className="bi bi-list" />
                 <i className="bi bi-person-circle" />
-                {open && <Dropdown changeTheme={changeTheme} setLogging={setLogging} showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} />}
+                {open && <Dropdown showUserMenu={showUserMenu} changeTheme={changeTheme} setLogging={setLogging} showMessage={showMessage} setRegistering={setRegistering} showDropdown={setOpen} />}
             </NavRegisterDiv>
-
-
         </NavbarDiv>
     )
 }

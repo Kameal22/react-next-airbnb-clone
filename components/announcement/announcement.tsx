@@ -1,11 +1,21 @@
 import { apiDataTypes } from "../../types/apiDataTypes";
-import { AnnouncementAmenties, AnnouncementHeading, AnnouncementHeadingRatings, AnnouncementImgs, AnnouncementMoreInfo, AnnouncementReserve, AnnouncementReserveHeading, AnnouncementStyled, AnnouncementStyledMain } from "./styled/announcement.styled";
+import { AnnouncementAmenties, AnnouncementHeading, AnnouncementHeadingRatings, AnnouncementImgs, AnnouncementMoreInfo, AnnouncementReserve, AnnouncementReserveGuests, AnnouncementReserveHeading, AnnouncementStyled, AnnouncementStyledMain } from "./styled/announcement.styled";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useState } from "react";
 
 interface Props {
     place: apiDataTypes
 }
 
 const Announcement: React.FC<Props> = ({ place }) => {
+    const [ammount, setAmmount] = useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setAmmount(event.target.value);
+    };
 
     return (
         <AnnouncementStyled>
@@ -48,6 +58,27 @@ const Announcement: React.FC<Props> = ({ place }) => {
                                 <AnnouncementHeadingRatings>99 Ratings</AnnouncementHeadingRatings>
                             </div>
                         </AnnouncementReserveHeading>
+                        <AnnouncementReserveGuests>
+                            <FormControl style={{ marginLeft: "auto", marginRight: "auto" }} sx={{ m: 1, minWidth: 280 }}>
+                                <InputLabel id="demo-simple-select-autowidth-label">Guests</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-autowidth-label"
+                                    id="demo-simple-select-autowidth"
+                                    value={ammount}
+                                    onChange={handleChange}
+                                    autoWidth
+                                    label="Age"
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={1}>1 Guest</MenuItem>
+                                    <MenuItem value={2}>2 Guests</MenuItem>
+                                    <MenuItem value={3}>3 Guests</MenuItem>
+                                    <MenuItem value={4}>4 Guests</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </AnnouncementReserveGuests>
                     </AnnouncementReserve>
                 </AnnouncementMoreInfo>
             </AnnouncementStyledMain>

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 import { LoginDiv } from "./styled/login.styled";
 import { useRouter } from "next/router";
 import useInputState from "../../hooks/useInputState";

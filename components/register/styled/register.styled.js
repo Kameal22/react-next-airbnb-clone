@@ -14,7 +14,6 @@ export const RegisterDiv = styled.div`
   p {
     color: red;
     font-size: 0.8rem;
-    color: ${({ theme }) => theme.textColor.main};
   }
 
   h2 {

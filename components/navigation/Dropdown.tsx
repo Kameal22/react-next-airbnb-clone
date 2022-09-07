@@ -6,12 +6,13 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 interface Props {
     setRegistering: React.Dispatch<React.SetStateAction<boolean>>
     setLogging: React.Dispatch<React.SetStateAction<boolean>>
+    showUserMenu: () => void
     showDropdown: React.Dispatch<React.SetStateAction<boolean>>
     showMessage: () => void;
     changeTheme: () => void
 }
 
-const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, showMessage, changeTheme }) => {
+const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showUserMenu, showDropdown, showMessage, changeTheme }) => {
     const [user, setUser] = useState("");
     const [theme] = useLocalStorage("theme", "light");
 
@@ -49,12 +50,13 @@ const Dropdown: React.FC<Props> = ({ setRegistering, setLogging, showDropdown, s
     const loggedInMenu = () => {
         return (
             <>
-                <ListItem>
+                <ListItem onClick={showUserMenu}>
                     <span>{user}</span>
                 </ListItem>
                 <Link href="/host">
                     <ListItem>Host Your home</ListItem>
                 </Link>
+                <ListItem onClick={changeThemeFunc}>{theme === "light" ? 'Dark mode' : 'Light mode'}</ListItem>
                 <ListItem onClick={logout}>Logout</ListItem>
             </>
         )

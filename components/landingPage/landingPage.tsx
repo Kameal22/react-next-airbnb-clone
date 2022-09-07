@@ -5,10 +5,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from 'next/link';
 import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
+import UserMenu from "../user/UserMenu";
 import Snackbar from '@mui/material/Snackbar';
 import Login from "../login/Login";
 import { useRef } from "react";
 import UseClickOutside from '../../hooks/useClickOutside';
+import useToggle from "../../hooks/useToggle";
 
 interface Props {
     data: apiDataTypes[]
@@ -20,24 +22,27 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
     const [shownData, setShownData] = useState<apiDataTypes[]>([]);
     const [filteredPlace, setFilteredPlace] = useState("");
     const [searchData, setSearchData] = useState("");
-    const [registering, setRegistering] = useState(false);
-    const [loggingIn, setLogginIn] = useState(false);
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [secondaryOpen, setSecondaryOpen] = useState(false);
+    const [registering, setRegistering] = useToggle(false)
+    const [loggingIn, setLogginIn] = useToggle(false)
+    const [userMenuOpen, setUserMenuOpen] = useToggle(false);
+    const [openSnackbar, setOpenSnackbar] = useToggle(false)
+    const [secondaryOpen, setSecondaryOpen] = useToggle(false)
 
     useEffect(() => {
         setShownData(data)
     }, [])
 
     useEffect(() => {
-        if (loggedIn !== undefined) setRegistering(true)
+        if (loggedIn !== undefined) setRegistering()
     }, [loggedIn])
 
     const registerRef = useRef<HTMLDivElement>(null);
     const loginRef = useRef<HTMLDivElement>(null);
+    const userMenuRef = useRef<HTMLDivElement>(null);
 
-    UseClickOutside(registerRef, () => setRegistering(false))
-    UseClickOutside(loginRef, () => setLogginIn(false))
+    UseClickOutside(registerRef, () => setRegistering())
+    UseClickOutside(loginRef, () => setLogginIn())
+    UseClickOutside(userMenuRef, () => setUserMenuOpen())
 
     const filterData = () => {
         if (!filteredPlace) {
@@ -55,26 +60,9 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
 
     const filteredPlaces = useMemo(filterData, [filteredPlace, shownData])
 
-
-    const showMessage = () => {
-        setOpenSnackbar(true)
-    }
-
-    const handleClose = () => {
-        setOpenSnackbar(false)
-    }
-
-    const showSecondaryMessage = () => {
-        setSecondaryOpen(true)
-    }
-
-    const handleSecondaryClose = () => {
-        setSecondaryOpen(false)
-    }
-
     return (
         <>
-            <Navbar showMessage={showSecondaryMessage} setRegistering={setRegistering} setLogging={setLogginIn} clearFilters={clearFilters} setSearchData={setSearchData} changeTheme={changeTheme} />
+            <Navbar showMessage={setSecondaryOpen} setRegistering={setRegistering} setLogging={setLogginIn} showUserMenu={setUserMenuOpen} clearFilters={clearFilters} setSearchData={setSearchData} changeTheme={changeTheme} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
@@ -97,14 +85,15 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
                         )
                     })}
                 </Places>
-                {registering && <Register forwardRef={registerRef} setLogging={setLogginIn} setOpenSnackbar={showMessage} setRegistering={setRegistering} />}
-                {loggingIn && <Login forwardRef={loginRef} setLogging={setLogginIn} setOpenSnackbar={showMessage} />}
+                {registering && <Register forwardRef={registerRef} setLogging={setLogginIn} setOpenSnackbar={setOpenSnackbar} setRegistering={setRegistering} />}
+                {loggingIn && <Login forwardRef={loginRef} setLogging={setLogginIn} setOpenSnackbar={setOpenSnackbar} />}
+                {userMenuOpen && <UserMenu forwardRef={userMenuRef} />}
             </LandingPageStyledDiv>
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                 open={openSnackbar}
                 autoHideDuration={1500}
-                onClose={handleClose}
+                onClose={setOpenSnackbar}
                 message={<span id="messageId">User logged in</span>}
                 ContentProps={{
                     "aria-describedby": "messageId"
@@ -114,7 +103,7 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                 open={secondaryOpen}
                 autoHideDuration={1500}
-                onClose={handleSecondaryClose}
+                onClose={setSecondaryOpen}
                 message={<span id="second-messageId">Logged out succesfully</span>}
                 ContentProps={{
                     "aria-describedby": "second-messageId"

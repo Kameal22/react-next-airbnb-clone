@@ -132,3 +132,10 @@ export const AnnouncementReserveHeading = styled.div`
     }
   }
 `;
+
+export const AnnouncementReserveGuests = styled.div`
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-bottom: 2vh;
+`;
