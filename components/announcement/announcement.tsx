@@ -1,10 +1,11 @@
 import { apiDataTypes } from "../../types/apiDataTypes";
-import { AnnouncementAmenties, AnnouncementHeading, AnnouncementHeadingRatings, AnnouncementImgs, AnnouncementMoreInfo, AnnouncementReserve, AnnouncementReserveGuests, AnnouncementReserveHeading, AnnouncementStyled, AnnouncementStyledMain } from "./styled/announcement.styled";
+import { AnnouncementAditionalInfo, AnnouncementAmenties, AnnouncementDislaimer, AnnouncementHeading, AnnouncementHeadingRatings, AnnouncementImgs, AnnouncementMoreInfo, AnnouncementReserve, AnnouncementReserveButton, AnnouncementReserveGuests, AnnouncementReserveHeading, AnnouncementStyled, AnnouncementStyledMain, AnnouncementSum } from "./styled/announcement.styled";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState } from "react";
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 interface Props {
     place: apiDataTypes
@@ -12,9 +13,13 @@ interface Props {
 
 const Announcement: React.FC<Props> = ({ place }) => {
     const [ammount, setAmmount] = useState('');
+    const [totalCost, setTotalCost] = useState(place.cost);
+    const [theme] = useLocalStorage("theme", "light");
 
     const handleChange = (event: SelectChangeEvent) => {
         setAmmount(event.target.value);
+
+        setTotalCost(parseInt(event.target.value) * place.cost)
     };
 
     return (
@@ -59,19 +64,16 @@ const Announcement: React.FC<Props> = ({ place }) => {
                             </div>
                         </AnnouncementReserveHeading>
                         <AnnouncementReserveGuests>
-                            <FormControl style={{ marginLeft: "auto", marginRight: "auto" }} sx={{ m: 1, minWidth: 280 }}>
-                                <InputLabel id="demo-simple-select-autowidth-label">Guests</InputLabel>
+                            <FormControl fullWidth>
+                                <InputLabel style={theme === "light" ? { color: "black" } : { color: "white" }} id="demo-simple-select-label">Guests</InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-autowidth-label"
-                                    id="demo-simple-select-autowidth"
+                                    style={theme === "light" ? { color: "black" } : { color: "white" }}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
                                     value={ammount}
+                                    label="Ammount"
                                     onChange={handleChange}
-                                    autoWidth
-                                    label="Age"
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value={1}>1 Guest</MenuItem>
                                     <MenuItem value={2}>2 Guests</MenuItem>
                                     <MenuItem value={3}>3 Guests</MenuItem>
@@ -79,6 +81,22 @@ const Announcement: React.FC<Props> = ({ place }) => {
                                 </Select>
                             </FormControl>
                         </AnnouncementReserveGuests>
+
+                        <AnnouncementReserveButton disabled={!ammount}>Reserve</AnnouncementReserveButton>
+
+                        <AnnouncementDislaimer>
+                            Payment will not be charged yet
+                        </AnnouncementDislaimer>
+
+                        <AnnouncementAditionalInfo>
+                            <p>Cleaning fee</p>
+                            <p>0 zł</p>
+                        </AnnouncementAditionalInfo>
+
+                        <AnnouncementSum>
+                            <p>Total:</p>
+                            <p>{totalCost} zł</p>
+                        </AnnouncementSum>
                     </AnnouncementReserve>
                 </AnnouncementMoreInfo>
             </AnnouncementStyledMain>

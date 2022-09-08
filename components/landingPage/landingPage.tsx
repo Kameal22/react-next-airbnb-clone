@@ -5,7 +5,6 @@ import { useEffect, useMemo, useState } from "react";
 import Link from 'next/link';
 import Navbar from "../navigation/Navbar";
 import Register from "../register/Register";
-import UserMenu from "../user/UserMenu";
 import Snackbar from '@mui/material/Snackbar';
 import Login from "../login/Login";
 import { useRef } from "react";
@@ -24,7 +23,6 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
     const [searchData, setSearchData] = useState("");
     const [registering, setRegistering] = useToggle(false)
     const [loggingIn, setLogginIn] = useToggle(false)
-    const [userMenuOpen, setUserMenuOpen] = useToggle(false);
     const [openSnackbar, setOpenSnackbar] = useToggle(false)
     const [secondaryOpen, setSecondaryOpen] = useToggle(false)
 
@@ -38,11 +36,9 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
 
     const registerRef = useRef<HTMLDivElement>(null);
     const loginRef = useRef<HTMLDivElement>(null);
-    const userMenuRef = useRef<HTMLDivElement>(null);
 
     UseClickOutside(registerRef, () => setRegistering())
     UseClickOutside(loginRef, () => setLogginIn())
-    UseClickOutside(userMenuRef, () => setUserMenuOpen())
 
     const filterData = () => {
         if (!filteredPlace) {
@@ -62,7 +58,7 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
 
     return (
         <>
-            <Navbar showMessage={setSecondaryOpen} setRegistering={setRegistering} setLogging={setLogginIn} showUserMenu={setUserMenuOpen} clearFilters={clearFilters} setSearchData={setSearchData} changeTheme={changeTheme} />
+            <Navbar showMessage={setSecondaryOpen} setRegistering={setRegistering} setLogging={setLogginIn} clearFilters={clearFilters} setSearchData={setSearchData} changeTheme={changeTheme} />
             <LandingPageStyledDiv>
                 <FilterBar filteredPlace={filteredPlace} selectPlace={setFilteredPlace} />
                 <Places>
@@ -87,7 +83,6 @@ const LandingPage: React.FC<Props> = ({ data, loggedIn, changeTheme }) => {
                 </Places>
                 {registering && <Register forwardRef={registerRef} setLogging={setLogginIn} setOpenSnackbar={setOpenSnackbar} setRegistering={setRegistering} />}
                 {loggingIn && <Login forwardRef={loginRef} setLogging={setLogginIn} setOpenSnackbar={setOpenSnackbar} />}
-                {userMenuOpen && <UserMenu forwardRef={userMenuRef} />}
             </LandingPageStyledDiv>
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}

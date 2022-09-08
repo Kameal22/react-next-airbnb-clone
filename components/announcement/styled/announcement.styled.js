@@ -108,6 +108,7 @@ export const AnnouncementReserve = styled.div`
   -webkit-box-shadow: 1px 1px 13px -5px rgba(66, 68, 90, 1);
   -moz-box-shadow: 1px 1px 13px -5px rgba(66, 68, 90, 1);
   box-shadow: 1px 1px 13px -5px rgba(66, 68, 90, 1);
+  margin-bottom: 2vh;
 `;
 
 export const AnnouncementReserveHeading = styled.div`
@@ -138,4 +139,54 @@ export const AnnouncementReserveGuests = styled.div`
   justify-items: center;
   align-items: center;
   padding-bottom: 2vh;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const AnnouncementReserveButton = styled.button`
+  padding: 20px;
+  background-color: #ff5a5f;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const AnnouncementDislaimer = styled.p`
+  font-weight: bold;
+  font-size: 0.75em !important;
+  text-align: center;
+`;
+
+export const AnnouncementAditionalInfo = styled.div`
+  text-decoration: underline;
+  text-decoration-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-bottom: 1px solid gray;
+`;
+
+export const AnnouncementSum = styled.div`
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
 `;
